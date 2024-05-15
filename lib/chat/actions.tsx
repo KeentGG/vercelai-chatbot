@@ -100,9 +100,8 @@ async function confirmPurchase(symbol: string, price: number, amount: number) {
         {
           id: nanoid(),
           role: 'system',
-          content: `[User has purchased ${amount} shares of ${symbol} at ${price}. Total cost = ${
-            amount * price
-          }]`
+          content: `[User has purchased ${amount} shares of ${symbol} at ${price}. Total cost = ${amount * price
+            }]`
         }
       ]
     })
@@ -154,7 +153,7 @@ async function submitUserMessage(content: string) {
     If you want to show events, call \`get_events\`.
     If the user wants to sell stock, or complete another impossible task, respond that you are a demo and cannot do that.
     
-    Besides that, you can also chat with users and do some calculations if needed.`,
+    Besides that, you can also chat with users, everytime user asks for a joke or something make it random and not give the same response as before, and do some calculations.`,
     messages: [
       ...aiState.get().messages.map((message: any) => ({
         role: message.role,
@@ -199,7 +198,7 @@ async function submitUserMessage(content: string) {
             })
           )
         }),
-        generate: async function* ({ stocks }) {
+        generate: async function*({ stocks }) {
           yield (
             <BotCard>
               <StocksSkeleton />
@@ -240,7 +239,7 @@ async function submitUserMessage(content: string) {
           price: z.number().describe('The price of the stock.'),
           delta: z.number().describe('The change in price of the stock')
         }),
-        generate: async function* ({ symbol, price, delta }) {
+        generate: async function*({ symbol, price, delta }) {
           yield (
             <BotCard>
               <StockSkeleton />
@@ -285,7 +284,7 @@ async function submitUserMessage(content: string) {
               'The **number of shares** for a stock or currency to purchase. Can be optional if the user did not specify it.'
             )
         }),
-        generate: async function* ({ symbol, price, numberOfShares = 100 }) {
+        generate: async function*({ symbol, price, numberOfShares = 100 }) {
           if (numberOfShares <= 0 || numberOfShares > 1000) {
             aiState.done({
               ...aiState.get(),
@@ -347,7 +346,7 @@ async function submitUserMessage(content: string) {
             })
           )
         }),
-        generate: async function* ({ events }) {
+        generate: async function*({ events }) {
           yield (
             <BotCard>
               <EventsSkeleton />
@@ -455,6 +454,7 @@ export const AI = createAI<AIState, UIState>({
 })
 
 export const getUIStateFromAIState = (aiState: Chat) => {
+  console.log('----', aiState.messages)
   return aiState.messages
     .filter(message => message.role !== 'system')
     .map((message, index) => ({

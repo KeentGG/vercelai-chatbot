@@ -130,7 +130,7 @@ export function Purchase({
               ])
             }}
           >
-            Purchase
+            Sample button for BlackAcre
           </button>
         </>
       ) : status === 'completed' ? (

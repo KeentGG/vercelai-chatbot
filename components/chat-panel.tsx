@@ -35,26 +35,31 @@ export function ChatPanel({
   const [shareDialogOpen, setShareDialogOpen] = React.useState(false)
 
   const exampleMessages = [
+    // {
+    //   heading: 'What are the',
+    //   subheading: 'trending memecoins today?',
+    //   message: `What are the trending memecoins today?`
+    // },
+    // {
+    //   heading: 'What is the price of',
+    //   subheading: '$DOGE right now?',
+    //   message: 'What is the price of $DOGE right now?'
+    // },
     {
-      heading: 'What are the',
-      subheading: 'trending memecoins today?',
-      message: `What are the trending memecoins today?`
-    },
-    {
-      heading: 'What is the price of',
-      subheading: '$DOGE right now?',
-      message: 'What is the price of $DOGE right now?'
-    },
-    {
-      heading: 'I would like to buy',
-      subheading: '42 $DOGE',
+      heading: 'Welcome to BlackAcre',
+      subheading: 'Search cases',
       message: `I would like to buy 42 $DOGE`
     },
     {
-      heading: 'What are some',
-      subheading: `recent events about $DOGE?`,
-      message: `What are some recent events about $DOGE?`
+      heading: 'Give me some dad jokes',
+      subheading: 'Make me laugh',
+      message: `Hit me up with some dad jokes`
     }
+    // {
+    //   heading: 'What are some',
+    //   subheading: `recent events about $DOGE?`,
+    //   message: `What are some recent events about $DOGE?`
+    // }
   ]
 
   return (
@@ -70,9 +75,8 @@ export function ChatPanel({
             exampleMessages.map((example, index) => (
               <div
                 key={example.heading}
-                className={`cursor-pointer rounded-lg border bg-white p-4 hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900 ${
-                  index > 1 && 'hidden md:block'
-                }`}
+                className={`cursor-pointer rounded-lg border bg-white p-4 hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900 ${index > 1 && 'hidden md:block'
+                  }`}
                 onClick={async () => {
                   setMessages(currentMessages => [
                     ...currentMessages,
