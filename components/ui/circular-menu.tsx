@@ -90,6 +90,7 @@ export function CircularActionMenu({ className }: { className?: string }) {
                   top: `${pos.y}px`,
                   transitionDelay: `${50 * i}ms`
                 }}
+                key={i}
               >
                 <Tooltip delayDuration={300}>
                   <TooltipTrigger asChild>
