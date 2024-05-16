@@ -88,7 +88,7 @@ export function CircularActionMenu({ className }: { className?: string }) {
                 style={{
                   left: `${pos.x}px`,
                   top: `${pos.y}px`,
-                  transitionDelay: `${40 * i}ms`
+                  transitionDelay: `${50 * i}ms`
                 }}
               >
                 <Tooltip delayDuration={300}>
