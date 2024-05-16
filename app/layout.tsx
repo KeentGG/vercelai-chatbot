@@ -26,8 +26,8 @@ export const metadata = {
 
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'white' }
+    { media: '(prefers-color-scheme: light)', color: 'light' },
+    { media: '(prefers-color-scheme: dark)', color: 'light' }
   ]
 }
 
@@ -37,7 +37,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="light" suppressHydrationWarning>
       <body
         className={cn(
           'font-sans antialiased',
