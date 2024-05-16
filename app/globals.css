@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: light;
-  }
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -76,6 +70,11 @@
   * {
     @apply border-border;
   }
+
+  html {
+    color-scheme: light !important;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
