@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from 'clsx'
 import { customAlphabet } from 'nanoid'
 import { twMerge } from 'tailwind-merge'
+import { CoordPoint } from '@/lib/types'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -86,4 +87,15 @@ export const getMessageFromCode = (resultCode: string) => {
     case ResultCode.UserLoggedIn:
       return 'Logged in!'
   }
+}
+
+export function degToRad(deg: number): number {
+  return (deg * Math.PI) / 180
+}
+
+export function radToPoint(rad: number, radius: number): CoordPoint {
+  const x: number = Math.ceil(radius * Math.cos(rad))
+  const y: number = Math.ceil(radius * Math.sin(rad) * -1)
+
+  return { x, y }
 }

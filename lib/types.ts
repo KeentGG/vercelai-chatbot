@@ -13,8 +13,8 @@ export interface Chat extends Record<string, any> {
 export type ServerActionResult<Result> = Promise<
   | Result
   | {
-      error: string
-    }
+    error: string
+  }
 >
 
 export interface Session {
@@ -34,4 +34,9 @@ export interface User extends Record<string, any> {
   email: string
   password: string
   salt: string
+}
+
+export type CoordPoint = {
+  x: number
+  y: number
 }
